@@ -1,0 +1,93 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='alternate', type='application/rss+xml', title='王子亭的博客' href='https://jysperm.me/atom.xml')
+    link(rel='icon', type='image/png', href='/image/avatar.png')
+    link(rel='stylesheet', href='/vendor.css')
+    link(rel='stylesheet', href='/theme.css')
+    block head
+      title= config.title
+  body
+    .container
+      .page-header
+        h1= config.title
+    
+    .container
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='/')
+              img(alt=config.title, src='/image/avatar.png')
+          ul.nav.navbar-nav
+            li 
+              a(href='/about') 关于精子
+            li 
+              a(href='/profile') 简历
+            li 
+              a(href='/links') 链接
+            li 
+              a(href='/booklist') 书单
+            li 
+              a(href='/tweets') 碎语
+            li 
+              a(href='/list') 所有日志
+            li 
+              a(href='/ad') 广告
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/atom.xml') RSS
+            li 
+              a(target='_blank', href='https://github.com/jysperm/meta') fork on Github
+              
+    .container
+      .row
+        .col-md-9.block-body
+          block body
+        .col-md-3.block-sidebar
+          block sidebar
+            .widget.about
+              :markdown
+                精子生于 1995.11.25, 19 岁，现居江苏苏州，英文 ID jysperm.
+                
+                * 高中退学
+                * [独立博客](https://jysperm.me) 作者
+                * 有一个 [精子粉丝团](https://jybox.net)
+                * [RP 主机](http://rpvhost.net) 和 [GreenShadow](http://greenshadow.net) 维护者
+                * 积极参与开源社区，深度 [Github](https://github.com) 用户
+                * [番茄土豆](https://pomotodo.com) 维护者之一，[Hackplan](http://hackplan.com/) 成员
+              
+            .widget.tags
+              != list_tags({show_count: false})
+              
+            .widget.archives
+              != list_archives()
+              
+            .widget.copyrigth
+              p
+                | 该博客使用基于 &nbsp;
+                a(href='http://hexo.io') Hexo
+                | &nbsp; 的 &nbsp;
+                a(href='https://github.com/jysperm/meta/tree/master/blog/themes/jysperm') hexo-theme-jysperm
+                | &nbsp; 主题。源文件托管于 Github 的 &nbsp;
+                a(href='https://github.com/jysperm/meta/tree/master/blog') jysperm/meta
+                | , 文字内容使用 &nbsp;
+                a(href='http://creativecommons.org/licenses/by-nc-sa/3.0/cn/') CC BY-NC-SA 3.0
+                | &nbsp; 授权发布。最后生成于 #{date(Date.now(), 'YYYY-MM-DD')}.
+      
+    if theme.duoshuo_short_name
+      script.
+        window.duoshuoQuery = {short_name: '#{theme.duoshuo_short_name}'}
+
+    if theme.google_analytics
+      script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '#{theme.google_analytics}', 'auto');
+        ga('send', 'pageview');
+        
+    script(src='/vendor.js')
+    script(src='https://static.duoshuo.com/embed.js')
+    block footer

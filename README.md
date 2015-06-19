@@ -1,1 +1,1 @@
-# hexo-theme-simpleblock
+# Hexo Theme: Simple Block

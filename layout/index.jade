@@ -1,0 +1,74 @@
+extends base
+
+block head
+  if is_tag()
+    title 标签：#{page.tag} | #{config.title}
+  else if page.category
+    title 分类：#{page.category} | #{config.title}
+  else if page.year && page.month
+    title 归档：#{page.year} 年 #{page.month} 月 | #{config.title}
+  else if !page.posts
+    title= page.title
+  else
+    title= config.title
+
+mixin article(post)
+  article
+    header
+      if page.posts
+        h2
+          a(href=url_for(post.path))= post.title
+      else
+        small.pull-right
+          a(target='_blank', href=sourceOfPost(post)) 查看源代码
+        h2.clearfix= post.title
+      
+    .article-meta.clearfix
+      time.pull-left= post.date.format(config.date_format)
+      
+      if post.categories
+        ul.tags.pull-left
+          - post.categories.each(function(category) {
+            li
+              a(href=url_for(category.path))= category.name
+          - });
+        
+      if post.tags
+        ul.tags.pull-right
+          - post.tags.each(function(tag) {
+            li
+              a(href=url_for(tag.path))= tag.name
+          - });
+      
+    div!= post.content
+        
+    unless page.posts
+      .ds-thread(data-thread-key=duoshuoKey(post), data-title=post.title, data-url=post.permalink)
+
+block body
+  .archive-title
+    p(style='margin-bottom: 0;')
+      a(href='/on-sale') 精子要搬家了，低价转让电子产品和实体书
+  
+  if is_tag()
+    .archive-title
+      strong 标签 ##{page.tag}
+      
+  if page.category
+    .archive-title
+      strong 分类 ##{page.category}
+      
+  if page.year && page.month
+    .archive-title
+      strong 归档 #{page.year} 年 #{page.month} 月
+  
+  if page.posts
+    - page.posts.each(function(post) {
+      +article(post)
+    - });
+    
+    .archive-pagination
+      .paginator!= fixPaginator(paginator({prev_text: '&laquo;', next_text: '&raquo;'}))
+        
+  else
+    +article(page)
