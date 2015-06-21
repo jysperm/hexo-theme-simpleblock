@@ -1,7 +1,28 @@
 {
-  "name": "hexo-theme-jysperm",
-  "version": "2.8.3",
+  "name": "hexo-theme-simpleblock",
+  "version": "0.1.0",
+  "description": "A simple theme for Hexo.",
+  "homepage": "https://jysperm.me",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jysperm/hexo-theme-simpleblock.git"
+  },
+  "contributors": [
+    {
+      "name": "jysperm",
+      "email": "jysperm@gmail.com",
+      "url": "https://jysperm.me"
+    }
+  ],
+  "scripts": {
+    "prepublish": "bower install && gulp build"
+  },
+  "dependencies": {
+    "coffee-script": "^1.7.1"
+  },
   "devDependencies": {
+    "bower": "^1.4.1",
     "gulp": "^3.8.10",
     "gulp-coffee": "^2.2.0",
     "gulp-concat": "^2.4.3",
@@ -11,6 +32,9 @@
     "gulp-minify-css": "^0.4.2",
     "gulp-order": "^1.1.1",
     "gulp-uglify": "^1.1.0",
-    "main-bower-files": "^2.5.0"
+    "main-bower-files": "^2.5.0",
+    "gulp-shell": "^0.4.2",
+    "del": "^1.2.0",
+    "gulp-add-src": "^0.2.0"
   }
 }

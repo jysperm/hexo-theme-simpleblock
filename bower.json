@@ -1,7 +1,6 @@
 {
-  "name": "hexo-theme-jysperm",
+  "name": "hexo-theme-simpleblock",
   "dependencies": {
-    "bootstrap": "~3.3.1",
-    "jquery": "~2.1.2"
+    "primer-css": "~2.2.1"
   }
 }
