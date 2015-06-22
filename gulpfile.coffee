@@ -5,17 +5,24 @@ order = require 'gulp-order'
 shell = require 'gulp-shell'
 less = require 'gulp-less'
 gulp = require 'gulp'
+sass = require 'gulp-sass'
 del = require 'del'
 
 gulp.task 'clean', ->
   del ['source/**', '!_source/**']
 
+gulp.task 'build:primer', ->
+  gulp.src 'source/_source/primer.scss'
+  .pipe sass
+    includePaths: 'bower_components/primer-css/scss'
+  .pipe gulp.dest 'source'
+
 gulp.task 'build:styles', ->
-  gulp.src 'source/_source/*.less'
+  gulp.src 'source/_source/simpleblock.less'
   .pipe less()
-  .pipe minifyCSS()
-  .pipe addSrc 'bower_components/primer-css/css/primer.css'
+  .pipe addSrc 'source/primer.css'
   .pipe order ['primer.css', '*']
+  .pipe minifyCSS()
   .pipe concat 'styles.css'
   .pipe gulp.dest 'source'
 

@@ -13,11 +13,11 @@ html
         h1= config.title
         
       .columns
-        .page-nav.clearfix
+        .navigation.clearfix
           nav.right
             a(href='/atom.xml') RSS
             a(target='_blank', href='https://github.com/jysperm/meta') fork on Github
-          nav
+          nav.clearfix
             a.favicon(href='/')
               img(alt=config.title, src='/favicon.png')
             a(href='/about') 关于精子
@@ -29,9 +29,9 @@ html
             a(href='/ad') 广告
             
       .columns
-        .three-fourths.column.block-body
+        .block-body.column.three-fourths
           block body
-        .one-fourth.column.block-sidebar
+        .block-sidebar.column.one-fourth
           block sidebar
             .widget.about
               :markdown

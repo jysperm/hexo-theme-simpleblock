@@ -1,0 +1,36 @@
+.block-sidebar {
+  .widget {
+    .border();
+    padding: 10px 15px;
+    margin-bottom: 20px;
+
+    p {
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+    }
+
+    &.about ul {
+      padding-left: 10px;
+      font-size: 13px;
+    }
+
+    &.tags ul {
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        margin: 0 0.2em;
+        display: inline-block;
+      }
+    }
+
+    &.archives ul {
+      list-style: none;
+      padding-left: 0;
+
+      .archive-list-count {
+        .brackets();
+      }
+    }
+  }
+}

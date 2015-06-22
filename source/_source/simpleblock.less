@@ -1,0 +1,41 @@
+body {
+  background: #F4F4F4;
+  font: 400 16px/1.8 'Georgia', 'Source Han Sans', 'Xin Gothic', 'Hiragino Sans GB', 'Droid Sans Fallback', 'Microsoft YaHei', sans-serif;
+}
+
+.block-body, .block-sidebar {
+  padding: 0;
+}
+
+.page-header {
+  margin: 40px 0 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 500;
+    padding-left: 40px;
+  }
+}
+
+@import 'navigation';
+@import 'article';
+@import 'sidebar';
+@import 'responsive';
+
+.border {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #E7E7E7;
+  margin: 10px;
+}
+
+.brackets {
+  &:before {
+    content: ' (';
+  }
+  &:after {
+    content: ')';
+  }
+}
