@@ -8,7 +8,7 @@ block head
   else if page.year && page.month
     title 归档：#{page.year} 年 #{page.month} 月 | #{config.title}
   else if !page.posts
-    title= page.title
+    title #{page.title} | #{config.title}
   else
     title= config.title
 
@@ -20,7 +20,7 @@ mixin article(post)
           a(href=url_for(post.path))= post.title
       else
         small.right
-          a(target='_blank', href=sourceOfPost(post)) 查看源代码
+          a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
         h2= post.title
       
     .article-meta.clearfix
@@ -39,15 +39,16 @@ mixin article(post)
             li
               a(href=url_for(tag.path))= tag.name
           - });
-      
-    div!= post.content
+
+    .markdown-body!= post.content
         
-    unless page.posts
+    if !page.posts && theme.duoshuo
       .ds-thread(data-thread-key=duoshuoKey(post), data-title=post.title, data-url=post.permalink)
 
 block body
-  .archive-title
-    a(href='/on-sale') 精子要搬家了，低价转让电子产品和实体书
+  for banner in formatArray(theme.banners)
+    .archive-title
+      +widget-inter(banner)
   
   if is_tag()
     .archive-title

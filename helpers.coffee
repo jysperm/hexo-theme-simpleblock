@@ -1,4 +1,21 @@
+jade = require 'jade'
+marked = require 'marked'
+
 module.exports = (hexo) ->
+  hexo.extend.helper.register 'formatArray', (array) ->
+    if array.length
+      return array
+    else if array
+      return [array]
+    else
+      return []
+
+  hexo.extend.helper.register 'renderJade', (source) ->
+    return jade.render source
+
+  hexo.extend.helper.register 'renderMarkdown', (source) ->
+    return marked source
+
   hexo.extend.helper.register 'duoshuoKey', (post) ->
     duoshuo_id = post.raw.match /duoshuo_id: ?(.*)/
 
@@ -10,9 +27,8 @@ module.exports = (hexo) ->
     if post_permalink
       return post_permalink[1]
 
-  hexo.extend.helper.register 'sourceOfPost', (post) ->
-    path = post.source.replace(/#/m, '%23').replace(/\ /m, '%20')
-    return "https://github.com/jysperm/meta/tree/master/blog/source/#{path}"
+  hexo.extend.helper.register 'sourceOfPost', (post, source_url) ->
+    return source_url + encodeURIComponent(post.source)
 
   hexo.extend.helper.register 'fixPaginator', (html) ->
-    return html.replace /\/\//m, '/'
+    return html.replace /\/\//g, '/'

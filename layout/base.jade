@@ -1,12 +1,49 @@
+mixin menus(menus)
+  for value, key in menus
+    if value.target
+      a(target=value.target, href=value.href)= key
+    else
+      a(href=value)= key
+      
+mixin widget-inter(widget)
+  if widget.jade
+    != renderJade(widget.jade)
+  else if widget.markdown
+    != renderMarkdown(widget.markdown)
+    
+mixin widget(widget)
+  if widget.tags
+    .widget.tags
+      != list_tags({show_count: false})
+  else if widget.archives
+    .widget.archives
+      != list_archives()
+  else if widget.copyright
+    .widget.text-content
+      p
+        | 该博客使用基于 &nbsp;
+        a(href='http://hexo.io') Hexo
+        | &nbsp; 的 &nbsp;
+        a(href='https://github.com/jysperm/hexo-theme-simpleblock') simpleblock
+        | &nbsp; 主题。博客内容使用 &nbsp;
+        a(href=theme.license.url) #{theme.license.name}
+        | &nbsp; 授权发布。最后生成于 #{date(Date.now(), 'YYYY-MM-DD')}.
+  else
+    .widget.text-content
+      +widget-inter(widget)
+    
 doctype html
 html
   head
     meta(charset='utf-8')
-    link(rel='icon', type='image/png', href='/favicon.png')
+    if theme.favicon
+      link(rel='icon', type='image/png', href=theme.favicon)
+    if theme.rss
+      link(rel='alternate', type='application/rss+xml', title=config.title href=theme.rss)
     link(rel='stylesheet', href='/styles.css')
-    link(rel='alternate', type='application/rss+xml', title='王子亭的博客' href='https://jysperm.me/atom.xml')
     block head
       title= config.title
+      
   body
     .container
       .columns.page-header
@@ -14,53 +51,24 @@ html
         
       .columns
         .navigation.clearfix
-          nav.right
-            a(href='/atom.xml') RSS
-            a(target='_blank', href='https://github.com/jysperm/meta') fork on Github
+          if theme.right_menus
+            nav.right
+              +menus(theme.right_menus)
+              
           nav.clearfix
-            a.favicon(href='/')
-              img(alt=config.title, src='/favicon.png')
-            a(href='/about') 关于精子
-            a(href='/profile') 简历
-            a(href='/links') 链接
-            a(href='/booklist') 书单
-            a(href='/tweets') 碎语
-            a(href='/list') 所有日志
-            a(href='/ad') 广告
+            if theme.icon
+              a.favicon(href='/')
+                img(alt=config.title, src=theme.icon)
+                  
+            +menus(theme.menus)
             
       .columns
         .block-body.column.three-fourths
           block body
         .block-sidebar.column.one-fourth
           block sidebar
-            .widget.about
-              :markdown
-                精子生于 1995.11.25, 19 岁，现居江苏苏州，英文 ID jysperm.
-                
-                * 高中退学
-                * [独立博客](https://jysperm.me) 作者
-                * 有一个 [精子粉丝团](https://jybox.net)
-                * [RP 主机](http://rpvhost.net) 和 [GreenShadow](http://greenshadow.net) 维护者
-                * 积极参与开源社区，深度 [Github](https://github.com) 用户
-                * [番茄土豆](https://pomotodo.com) 维护者之一，[Hackplan](http://hackplan.com/) 成员
-              
-            .widget.tags
-              != list_tags({show_count: false})
-              
-            .widget.archives
-              != list_archives()
-              
-            .widget.copyright
-              p
-                | 该博客使用基于 &nbsp;
-                a(href='http://hexo.io') Hexo
-                | &nbsp; 的 &nbsp;
-                a(href='https://github.com/jysperm/meta/tree/master/blog/themes/jysperm') hexo-theme-jysperm
-                | &nbsp; 主题。源文件托管于 Github 的 &nbsp;
-                a(href='https://github.com/jysperm/meta/tree/master/blog') jysperm/meta
-                | , 文字内容使用 &nbsp;
-                a(href='http://creativecommons.org/licenses/by-nc-sa/3.0/cn/') CC BY-NC-SA 3.0
-                | &nbsp; 授权发布。最后生成于 #{date(Date.now(), 'YYYY-MM-DD')}.
+            for item in formatArray(theme.widgets)
+              +widget(item)
 
     if theme.google_analytics
       script.
@@ -71,9 +79,9 @@ html
         ga('create', '#{theme.google_analytics}', 'auto');
         ga('send', 'pageview');
         
-    if theme.duoshuo_short_name
+    if theme.duoshuo
       script.
-        window.duoshuoQuery = {short_name: '#{theme.duoshuo_short_name}'}
+        window.duoshuoQuery = {short_name: '#{theme.duoshuo}'}
       script(src='https://static.duoshuo.com/embed.js')
         
     block footer

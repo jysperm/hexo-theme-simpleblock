@@ -1,2 +1,68 @@
+## Services
 google_analytics: 'UA-49193300-1'
-duoshuo_short_name: 'jyprince'
+duoshuo: 'jyprince'
+
+## Meta
+rss: https://jysperm.me/atom.xml
+favicon: /favicon.png
+icon: /favicon.png
+source_url: 'https://github.com/jysperm/meta/tree/master/blog/source/'
+license:
+  name: 'CC BY-NC-SA 3.0'
+  url: 'http://creativecommons.org/licenses/by-nc-sa/3.0/cn'
+
+## Menus
+menus:
+  '关于精子': /about
+  '简历': /profile
+  '链接': /links
+  '书单': /booklist
+  '碎语': /tweets
+  '所有日志': /list
+  '广告': /ad
+
+right_menus:
+  'RSS': /atom.xml
+  'fork on Github':
+    target: '_blank'
+    href: 'https://github.com/jysperm/meta'
+
+## Banners && Widgets
+banners:
+  jade: |
+    a(href='/on-sale') 精子要搬家了，低价转让电子产品和实体书
+
+widgets:
+  -
+    markdown: |
+      精子生于 1995.11.25, 19 岁，现居江苏苏州，英文 ID jysperm.
+
+      * 高中退学
+      * [独立博客](https://jysperm.me) 作者
+      * 有一个 [精子粉丝团](https://jybox.net)
+      * [RP 主机](http://rpvhost.net) 和 [GreenShadow](http://greenshadow.net) 维护者
+      * 积极参与开源社区，深度 [Github](https://github.com) 用户
+      * [番茄土豆](https://pomotodo.com) 维护者之一，[Hackplan](http://hackplan.com/) 成员
+
+  -
+    tags: true
+
+  -
+    archives: true
+
+  -
+    copyright: true
+
+## SNS (Work in progress)
+sns:
+  qq: '184300584'
+  qun: '61137226'
+  v2ex: 'jybox'
+  mobile: '17091927884'
+  github: 'jysperm'
+  keybase: 'jysperm'
+  zhihu: 'jysperm'
+  google_plus: '+王子亭jysperm'
+  segmentfault: 'jysperm'
+  twitter: 'jysperm'
+  bitcoin: '13v2BTCMZMHg5v87susgg86HFZqXERuwUd'
