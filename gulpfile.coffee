@@ -9,16 +9,16 @@ sass = require 'gulp-sass'
 del = require 'del'
 
 gulp.task 'clean', ->
-  del ['source/**', '!_source/**']
+  del ['source/primer.css']
 
 gulp.task 'build:primer', ->
-  gulp.src 'source/_source/primer.scss'
+  gulp.src 'source/_styles/primer.scss'
   .pipe sass
     includePaths: 'bower_components/primer-css/scss'
   .pipe gulp.dest 'source'
 
-gulp.task 'build:styles', ->
-  gulp.src 'source/_source/simpleblock.less'
+gulp.task 'build:styles', ['build:primer'], ->
+  gulp.src 'source/_styles/simpleblock.less'
   .pipe less()
   .pipe addSrc 'source/primer.css'
   .pipe addSrc 'bower_components/primer-markdown/dist/user-content.css'
@@ -27,14 +27,7 @@ gulp.task 'build:styles', ->
   .pipe concat 'styles.css'
   .pipe gulp.dest 'source'
 
-gulp.task 'build:statics', ->
-  gulp.src [
-    'source/_source/*.svg'
-    'source/_source/*.png'
-  ]
-  .pipe gulp.dest 'source'
-
-gulp.task 'build', ['build:styles', 'build:statics']
+gulp.task 'build', ['build:styles']
 
 gulp.task 'watch', ->
-  gulp.watch 'source/_source/*.less', ['build:styles']
+  gulp.watch 'source/_styles/*.less', ['build:styles']
