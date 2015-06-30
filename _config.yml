@@ -1,48 +1,44 @@
 ## Services
-google_analytics: 'UA-49193300-1'
-duoshuo: 'jyprince'
+google_analytics:
+duoshuo:
 
 ## Meta
 rss: https://jysperm.me/atom.xml
 favicon: /favicon.png
 icon: /favicon.png
-source_url: 'https://github.com/jysperm/meta/tree/master/blog/source/'
+source_url:
 license:
   name: 'CC BY-NC-SA 3.0'
   url: 'http://creativecommons.org/licenses/by-nc-sa/3.0/cn'
 
 ## Menus
 menus:
-  '关于精子': /about
-  '简历': /profile
-  '链接': /links
-  '书单': /booklist
-  '碎语': /tweets
-  '所有日志': /list
-  '广告': /ad
+  'Home': /
 
 right_menus:
   'RSS': /atom.xml
   'fork on Github':
     target: '_blank'
-    href: 'https://github.com/jysperm/meta'
+    href: 'hexo-theme-simpleblock'
 
 ## Banners && Widgets
 banners:
   jade: |
-    a(href='/on-sale') 精子要搬家了，低价转让电子产品和实体书
+    a(href='https://github.com/jysperm/hexo-theme-simpleblock') 与精子同款的博客主题 simpleblock 现已发布！
 
 widgets:
   -
     markdown: |
-      精子生于 1995.11.25, 19 岁，现居江苏苏州，英文 ID jysperm.
+      Simple Block 是一个基于线框设计的简单的 Hexo 主题，拆分自 [精子的博客](https://jysperm.me)。
+      支持使用 Jade 或 Markdown 来向边栏添加小部件，或向正文前添加横幅。
 
-      * 高中退学
-      * [独立博客](https://jysperm.me) 作者
-      * 有一个 [精子粉丝团](https://jybox.net)
-      * [RP 主机](http://rpvhost.net) 和 [GreenShadow](http://greenshadow.net) 维护者
-      * 积极参与开源社区，深度 [Github](https://github.com) 用户
-      * [番茄土豆](https://pomotodo.com) 维护者之一，[Hackplan](http://hackplan.com/) 成员
+      技术栈：
+
+      * Jade - 页面模板
+      * Less/Sass - 页面样式
+      * Bower - 前端包管理器
+      * CoffeeScript - Hexo 拓展脚本
+      * Gulp - 编译工具
 
   -
     tags: true
