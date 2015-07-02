@@ -30,9 +30,8 @@ gulp.task 'release', ['build'], ->
   gulp.src [
     'languages/*', 'layout/*', 'scripts/*', 'source/styles.css', 'source/favicon.png'
     '_config.yml', 'helpers.coffee', 'LICENSE', 'package.json', 'README.md'
-  ]
-  .pipe tar 'simpleblock.tar'
-  .pipe gulp.dest('.')
+  ], base: '.'
+  .pipe gulp.dest 'release/simpleblock'
 
 gulp.task 'watch', ->
   gulp.watch 'source/_styles/*.less', ['build:styles']
