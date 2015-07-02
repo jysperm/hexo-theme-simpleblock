@@ -15,9 +15,6 @@
       "url": "https://jysperm.me"
     }
   ],
-  "scripts": {
-    "prepublish": "bower install && gulp build"
-  },
   "dependencies": {
     "coffee-script": "^1.7.1",
     "jade": "^1.11.0",
@@ -32,8 +29,8 @@
     "gulp-order": "^1.1.1",
     "main-bower-files": "^2.5.0",
     "gulp-shell": "^0.4.2",
-    "del": "^1.2.0",
     "gulp-add-src": "^0.2.0",
-    "gulp-sass": "^2.0.1"
+    "gulp-sass": "^2.0.1",
+    "gulp-tar": "^1.4.0"
   }
 }
