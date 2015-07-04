@@ -6,7 +6,7 @@
 
 ## 安装
 
-    wget https://github.com/jysperm/hexo-theme-simpleblock/releases/download/v0.1.0/simpleblock.tar.gz
+    wget https://github.com/jysperm/hexo-theme-simpleblock/releases/download/v0.1.1/simpleblock.tar.gz
     tar xf simpleblock.tar.gz -C themes && rm simpleblock.tar.gz
     npm install hexo-renderer-jade --save
     cd themes/simpleblock && npm install --production
