@@ -36,6 +36,7 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     if theme.favicon
       link(rel='icon', href=theme.favicon)
     if theme.rss
@@ -51,16 +52,16 @@ html
         
       .columns
         .navigation.clearfix
-          if theme.right_menus
-            nav.right
-              +menus(theme.right_menus)
-              
-          nav.clearfix
+          nav.left
             if theme.icon
               a.favicon(href='/')
                 img(alt=config.title, src=theme.icon)
                   
             +menus(theme.menus)
+            
+          if theme.right_menus
+            nav.right
+              +menus(theme.right_menus)
             
       .columns
         .block-body.column.three-fourths
