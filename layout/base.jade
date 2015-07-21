@@ -80,9 +80,4 @@ html
         ga('create', '#{theme.google_analytics}', 'auto');
         ga('send', 'pageview');
         
-    if theme.duoshuo
-      script.
-        window.duoshuoQuery = {short_name: '#{theme.duoshuo}'}
-      script(src='https://static.duoshuo.com/embed.js')
-        
     block footer
