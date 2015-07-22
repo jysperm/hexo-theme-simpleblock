@@ -49,7 +49,7 @@ mixin article(post)
           window.duoshuoQuery = {short_name: '#{theme.duoshuo}'}
         script(src='https://static.duoshuo.com/embed.js')
 
-      if theme.changyan
+      if theme.changyan.appid
         #SOHUCS
         script(charset="utf-8", type="text/javascript", src="http://changyan.sohu.com/upload/changyan.js")
         script(type="text/javascript").
