@@ -42,14 +42,29 @@ mixin article(post)
 
     .markdown-body!= post.content
         
-    if !page.posts && theme.duoshuo
-      .ds-thread(data-thread-key=duoshuoKey(post), data-title=post.title, data-url=post.permalink)
+    if !page.posts 
+      if theme.duoshuo
+        .ds-thread(data-thread-key=duoshuoKey(post), data-title=post.title, data-url=post.permalink)
+        script.
+          window.duoshuoQuery = {short_name: '#{theme.duoshuo}'}
+        script(src='https://static.duoshuo.com/embed.js')
+
+      if theme.changyan.appid
+        #SOHUCS
+        script(charset="utf-8", type="text/javascript", src="http://changyan.sohu.com/upload/changyan.js")
+        script(type="text/javascript").
+          window.changyan.api.config({
+            appid: '#{theme.changyan.appid}',
+            conf: '#{theme.changyan.conf}'
+          });
 
 block body
-  for banner in formatArray(theme.banners)
-    .archive-title
-      +widget-inter(banner)
-  
+
+  if theme.banners
+    for banner in formatArray(theme.banners)
+      .archive-title
+        +widget-inter(banner)
+
   if is_tag()
     .archive-title
       strong 标签 ##{page.tag}

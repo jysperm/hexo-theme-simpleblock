@@ -1,6 +1,9 @@
 ## Services
 google_analytics:
 duoshuo:
+changyan:
+  appid:
+  conf:
 
 ## Meta
 rss: https://jysperm.me/atom.xml
