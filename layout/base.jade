@@ -51,8 +51,8 @@ html
         h1= config.title
         
       .columns
-        .navigation.clearfix
-          nav.left
+        .navigation
+          nav.menus-main
             if theme.icon
               a.favicon(href='/')
                 img(alt=config.title, src=theme.icon)
@@ -60,7 +60,7 @@ html
             +menus(theme.menus)
             
           if theme.right_menus
-            nav.right
+            nav.right.menus-right
               +menus(theme.right_menus)
             
       .columns
