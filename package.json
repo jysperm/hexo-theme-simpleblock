@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-simpleblock",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple theme for Hexo.",
   "homepage": "https://jysperm.me",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "main-bower-files": "2.5.0",
     "gulp-shell": "0.4.2",
     "gulp-add-src": "0.2.0",
-    "gulp-sass": "2.0.1",
+    "gulp-sass": "2.0.4",
     "gulp-tar": "1.4.0"
   }
 }

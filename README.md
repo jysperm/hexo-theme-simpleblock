@@ -6,8 +6,8 @@
 
 ## 安装
 
-    npm install hexo-theme-simpleblock hexo-renderer-jade --save
-    ln -s node_modules/hexo-theme-simpleblock themes/simpleblock
+    npm install hexo-theme-simpleblock hexo-renderer-jade
+    mv node_modules/hexo-theme-simpleblock themes/simpleblock
 
 修改 Hexo 的 `_config.yml` 中的 `theme` 为 `simpleblock`.
 
