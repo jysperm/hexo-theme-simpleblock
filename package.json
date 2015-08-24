@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-simpleblock",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple theme for Hexo.",
   "homepage": "https://jysperm.me",
   "license": "MIT",
@@ -16,21 +16,21 @@
     }
   ],
   "dependencies": {
-    "coffee-script": "^1.7.1",
-    "jade": "^1.11.0",
-    "marked": "^0.3.3"
+    "coffee-script": "1.7.1",
+    "jade": "1.11.0",
+    "marked": "0.3.3"
   },
   "devDependencies": {
-    "bower": "^1.4.1",
-    "gulp": "^3.8.10",
-    "gulp-concat": "^2.4.3",
-    "gulp-less": "^2.0.1",
-    "gulp-minify-css": "^0.4.2",
-    "gulp-order": "^1.1.1",
-    "main-bower-files": "^2.5.0",
-    "gulp-shell": "^0.4.2",
-    "gulp-add-src": "^0.2.0",
-    "gulp-sass": "^2.0.1",
-    "gulp-tar": "^1.4.0"
+    "bower": "1.4.1",
+    "gulp": "3.8.10",
+    "gulp-concat": "2.4.3",
+    "gulp-less": "2.0.1",
+    "gulp-minify-css": "0.4.2",
+    "gulp-order": "1.1.1",
+    "main-bower-files": "2.5.0",
+    "gulp-shell": "0.4.2",
+    "gulp-add-src": "0.2.0",
+    "gulp-sass": "2.0.1",
+    "gulp-tar": "1.4.0"
   }
 }

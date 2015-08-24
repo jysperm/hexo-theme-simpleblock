@@ -6,10 +6,8 @@
 
 ## 安装
 
-    wget https://github.com/jysperm/hexo-theme-simpleblock/releases/download/v0.1.1/simpleblock.tar.gz
-    tar xf simpleblock.tar.gz -C themes && rm simpleblock.tar.gz
-    npm install hexo-renderer-jade --save
-    cd themes/simpleblock && npm install --production
+    npm install hexo-theme-simpleblock hexo-renderer-jade --save
+    ln -s node_modules/hexo-theme-simpleblock themes/simpleblock
 
 修改 Hexo 的 `_config.yml` 中的 `theme` 为 `simpleblock`.
 
