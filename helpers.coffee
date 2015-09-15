@@ -3,7 +3,7 @@ marked = require 'marked'
 
 module.exports = (hexo) ->
   hexo.extend.helper.register 'formatArray', (array) ->
-    if array.length
+    if array?.length?
       return array
     else if array
       return [array]
