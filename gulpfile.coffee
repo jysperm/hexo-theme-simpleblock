@@ -2,11 +2,9 @@ minifyCSS = require 'gulp-minify-css'
 concat = require 'gulp-concat'
 addSrc = require 'gulp-add-src'
 order = require 'gulp-order'
-shell = require 'gulp-shell'
 less = require 'gulp-less'
 gulp = require 'gulp'
 sass = require 'gulp-sass'
-tar = require 'gulp-tar'
 
 gulp.task 'build:primer', ->
   gulp.src 'source/_styles/primer.scss'
@@ -29,7 +27,7 @@ gulp.task 'build', ['build:styles']
 gulp.task 'release', ['build'], ->
   gulp.src [
     'languages/*', 'layout/*', 'scripts/*', 'source/styles.css', 'source/favicon.png'
-    '_config.yml', 'helpers.coffee', 'LICENSE', 'package.json', 'README.md'
+    '_config.yml', 'LICENSE', 'package.json', 'README.md'
   ], base: '.'
   .pipe gulp.dest 'release/simpleblock'
 

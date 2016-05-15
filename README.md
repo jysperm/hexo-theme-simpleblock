@@ -6,18 +6,23 @@
 
 ## 安装
 
-    npm install hexo-theme-simpleblock hexo-renderer-jade
+    npm install hexo-theme-simpleblock hexo-renderer-jade --save
     mv node_modules/hexo-theme-simpleblock themes/simpleblock
 
-修改 Hexo 的 `_config.yml` 中的 `theme` 为 `simpleblock`.
+然后修改 Hexo 的 `_config.yml` 中的 `theme` 为 `simpleblock`.
 
 ## 技术栈
 
 * Jade - 页面模板
 * Less/Sass - 页面样式
 * Bower - 前端包管理器
-* CoffeeScript - Hexo 拓展脚本
-* Gulp - 编译工具
+* Gulp - 构建工具
+
+开发：
+
+    npm install
+    bower install
+    gulp build
 
 ## 自定义
 
