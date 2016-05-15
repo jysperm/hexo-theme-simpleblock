@@ -22,17 +22,17 @@ mixin article(post)
         small.right
           a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
         h2= post.title
-      
+
     .article-meta.clearfix
       time.left= post.date.format(config.date_format)
-      
+
       if post.categories
         ul.tags.left
           - post.categories.each(function(category) {
             li
               a(href=url_for(category.path))= category.name
           - });
-        
+
       if post.tags
         ul.tags.right
           - post.tags.each(function(tag) {
@@ -41,34 +41,39 @@ mixin article(post)
           - });
 
     .markdown-body!= post.content
-        
+
     if !page.posts && theme.duoshuo
-      .ds-thread(data-thread-key=duoshuoKey(post), data-title=post.title, data-url=post.permalink)
+      .ds-thread(data-thread-key=commentKey(post), data-title=post.title, data-url=post.permalink)
+
+  if !page.posts && post.appends
+    for append in formatArray(post.appends)
+      .archive-title
+        +widget-inter(append)
 
 block body
   for banner in formatArray(theme.banners)
     .archive-title
       +widget-inter(banner)
-  
+
   if is_tag()
     .archive-title
       strong 标签 ##{page.tag}
-      
+
   if page.category
     .archive-title
       strong 分类 ##{page.category}
-      
+
   if page.year && page.month
     .archive-title
       strong 归档 #{page.year} 年 #{page.month} 月
-  
+
   if page.posts
     - page.posts.each(function(post) {
       +article(post)
     - });
-    
+
     .archive-pagination
       .paginator!= fixPaginator(paginator({prev_text: '&laquo;', next_text: '&raquo;'}))
-        
+
   else
     +article(page)
