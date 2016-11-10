@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-simpleblock",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A simple theme for Hexo.",
   "homepage": "https://jysperm.me",
   "license": "MIT",
@@ -15,10 +15,6 @@
       "url": "https://jysperm.me"
     }
   ],
-  "dependencies": {
-    "jade": "1.11.0",
-    "marked": "0.3.3"
-  },
   "devDependencies": {
     "bower": "1.4.1",
     "gulp": "3.8.10",

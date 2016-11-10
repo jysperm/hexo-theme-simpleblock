@@ -21,7 +21,7 @@ mixin article(post)
       else
         small.right
           a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
-        h2= post.title
+        h1= post.title
 
     .article-meta.clearfix
       time.left= post.date.format(config.date_format)
@@ -47,24 +47,24 @@ mixin article(post)
 
   if !page.posts && post.appends
     for append in formatArray(post.appends)
-      .archive-title
+      .article-widget
         +widget-inter(append)
 
 block body
   for banner in formatArray(theme.banners)
-    .archive-title
+    .article-widget
       +widget-inter(banner)
 
   if is_tag()
-    .archive-title
+    .article-widget
       strong 标签 ##{page.tag}
 
   if page.category
-    .archive-title
+    .article-widget
       strong 分类 ##{page.category}
 
   if page.year && page.month
-    .archive-title
+    .article-widget
       strong 归档 #{page.year} 年 #{page.month} 月
 
   if page.posts
