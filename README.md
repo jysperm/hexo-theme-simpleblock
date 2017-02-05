@@ -7,7 +7,7 @@
 ## 安装
 
     cnpm install hexo-renderer-jade marked jade --save; cnpm install hexo-theme-simpleblock
-    cp -r node_modules/hexo-theme-simpleblock themes/simpleblock/; rm -r node_modules/hexo-theme-simpleblock
+    cp -r node_modules/hexo-theme-simpleblock themes/simpleblock; rm -r node_modules/hexo-theme-simpleblock
 
 然后修改 Hexo 的 `_config.yml` 中的 `theme` 为 `simpleblock`.
 
